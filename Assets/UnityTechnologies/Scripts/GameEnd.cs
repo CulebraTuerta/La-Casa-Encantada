@@ -34,6 +34,11 @@ public class GameEnd : MonoBehaviour
             EndLevel(backgroundLose,true,loseSound); //aqui el true es simplemente para repetir el nivel
             CaughtPlayer();
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();  //esto cierra el juego, solo funciona en el juego exportado.
+        }
     }
 
     private void OnTriggerEnter(Collider other) //si otro objeto entra en colision
@@ -65,7 +70,7 @@ public class GameEnd : MonoBehaviour
             }
             else
             {
-                Application.Quit();  //esto cierra el juego, solo funciona en el juego exportado.
+                SceneManager.LoadScene(0); //si tuviesemos otro nivel, deberia cargarse aqui... por ahora solo lo reiniciaremos.
             }
         }
     }
